@@ -298,7 +298,8 @@ public class OverlayService extends Service implements View.OnTouchListener {
                     lastX = event.getRawX();
                     lastY = event.getRawY();
                     int xx = params.x + (int) dx;
-                    int yy = params.y + (int) dy;
+                    // TODO gravityがBOTTOMの時に逆転する為一旦仮修正
+                    int yy = params.y - (int) dy;
                     params.x = xx;
                     params.y = yy;
                     windowManager.updateViewLayout(flutterView, params);
